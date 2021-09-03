@@ -4,7 +4,6 @@
 public with sharing class Queue {
     private Map<String, String> eventTypeToMessageHandlerMap;
     private Map<String, IQueueMessageHandler> eventTypeToMessageHandlerInstanceMap;
-    private Map<String, MessageHandlerInfo> eventTypeToMessageHandlerInfoMap;
 
     private List<QueueMessage__c> queueMessagesList;
 
@@ -14,11 +13,12 @@ public with sharing class Queue {
     }
 
     public Queue(List<QueueMessage__c> queueMessagesList) {
+        System.debug(LoggingLevel.DEBUG, 'Queue Initialised');
+
         this.queueMessagesList = queueMessagesList;
 
         eventTypeToMessageHandlerMap = new Map<String, String>();
         eventTypeToMessageHandlerInstanceMap = new Map<String, IQueueMessageHandler>();
-        eventTypeToMessageHandlerInfoMap = new Map<String, Queue.MessageHandlerInfo>();
 
         initializeQueueConfigurations();
     }

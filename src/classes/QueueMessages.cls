@@ -17,6 +17,7 @@ public with sharing class QueueMessages extends fflib_SObjectDomain {
         List<QueueMessage__c> queueMessagesList = (List<QueueMessage__c>) records;
 
         Queue processQueue = new Queue(queueMessagesList);
+        processQueue.submit();
     }
 
 }
