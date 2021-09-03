@@ -15,3 +15,4 @@
 1. Insert a record in QueueMessage__c custom object of the project.
 1. On insertion, in the afterInsert trigger of QueueMessage Object a job will be spawn.
 1. This job kicks off the Queue that reads the QueueConfiguration__mdt and dynamically pass the QueueMessages__c to their respective Message Handlers.
+1. Developer who uses this project, can write their handlers and configure those in QueueConfiguration__mdt. After configuration that metadata setting must be made active before use.
