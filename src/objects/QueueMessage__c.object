@@ -178,19 +178,14 @@
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
-                    <fullName>Update User Info</fullName>
+                    <fullName>Update Account</fullName>
                     <default>false</default>
-                    <label>Update User Info</label>
+                    <label>Update Account</label>
                 </value>
                 <value>
-                    <fullName>Update Bank Account Info</fullName>
+                    <fullName>Update Contact</fullName>
                     <default>false</default>
-                    <label>Update Bank Account Info</label>
-                </value>
-                <value>
-                    <fullName>Update EventX</fullName>
-                    <default>false</default>
-                    <label>Update EventX</label>
+                    <label>Update Contact</label>
                 </value>
             </valueSetDefinition>
         </valueSet>

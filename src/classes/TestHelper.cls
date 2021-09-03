@@ -7,6 +7,7 @@ public class TestHelper {
     public static QueueMessage__c getUncommittedQueueMessage(String updateUserInfo) {
         QueueMessage__c queueMessage = new QueueMessage__c();
         queueMessage.EventType__c = updateUserInfo;
+        queueMessage.Status__c = QueueConstants.QUEUE_MESSAGE_STATUS_PENDING;
         queueMessage.Body__c = '';
 
         return queueMessage;

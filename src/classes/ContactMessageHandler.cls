@@ -31,8 +31,11 @@ public with sharing class ContactMessageHandler implements IQueueMessageHandler 
                     Id = message.contactId,
                     Phone = message.phone
             ));
+
+            queueMessage.Status__c = QueueConstants.QUEUE_MESSAGE_STATUS_PROCESSED;
         }
 
         update contactsToUpdateList;
+        update queueMessagesList;
     }
 }

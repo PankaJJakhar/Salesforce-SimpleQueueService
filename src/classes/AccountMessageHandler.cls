@@ -31,8 +31,11 @@ public with sharing class AccountMessageHandler implements IQueueMessageHandler 
                     Id = message.accountId,
                     Site = message.site
             ));
+
+            queueMessage.Status__c = QueueConstants.QUEUE_MESSAGE_STATUS_PROCESSED;
         }
 
         update accountsToUpdateList;
+        update queueMessagesList;
     }
 }

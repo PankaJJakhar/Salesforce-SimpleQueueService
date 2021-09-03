@@ -36,6 +36,14 @@ private class QueueMessagesTest {
 
         System.assertEquals(returnedAccountRecord.Site, 'www.wayne.com');
         System.assertEquals(returnedContactRecord.Phone, '4141414141');
+
+        List<QueueMessage__c> returnedQueueMessagesList = [
+                SELECT Id,
+                        Status__c
+                FROM QueueMessage__c
+                WHERE Status__c = :QueueConstants.QUEUE_MESSAGE_STATUS_PROCESSED
+        ];
+        System.assert(returnedQueueMessagesList.size() == 2);
     }
 
     private static String getAccountMessageBody(Id accountId) {
