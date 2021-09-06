@@ -24,9 +24,9 @@
 @IsTest(SeeAllData = false)
 public class TestHelper {
 
-    public static QueueMessage__c getUncommittedQueueMessage(String updateUserInfo) {
+    public static QueueMessage__c getUncommittedQueueMessage(String eventType) {
         QueueMessage__c queueMessage = new QueueMessage__c();
-        queueMessage.EventType__c = updateUserInfo;
+        queueMessage.EventType__c = eventType;
         queueMessage.Status__c = QueueConstants.QUEUE_MESSAGE_STATUS_PENDING;
         queueMessage.Body__c = '';
 
