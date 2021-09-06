@@ -2,6 +2,20 @@
 
 ![GitHub Logo](/images/SimpleQueueService.jpeg)
 
+
+**Dependencies:** Must deploy [ApexMocks](https://github.com/apex-enterprise-patterns/fflib-apex-mocks) before deploying this library
+
+<a href="https://githubsfdeploy.herokuapp.com">
+  <img alt="Deploy to Salesforce"
+       src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/src/main/webapp/resources/img/deploy.png">
+</a>
+
+**Link to deploy package to your org**
+<a href="https://login.salesforce.com/packaging/installPackage.apexp?p0=04t5g0000011bTE&isdtp=p1">
+  <img alt="Simple Queue Service - Package Link"
+       src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/src/main/webapp/resources/img/deploy.png">
+</a>
+
 ## Components
 
 1. QueueMessage__c : Custom Object
