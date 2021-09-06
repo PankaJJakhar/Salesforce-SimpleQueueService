@@ -19,10 +19,10 @@ https://login.salesforce.com/packaging/installPackage.apexp?p0=04t5g0000011bTE&i
 
 ## Components
 
-1. QueueMessage__c : Custom Object
-1. QueueConfiguration__mdt : Custom Metadata
-1. QueueScheduler : Schedules the Queueing activity asynchronously
-1. Queue : Reads the QueueConfiguration__mdt and accordingly distribute the Queue Messages to its respective handlers to process
+1. QueueMessage__c: Custom Object
+1. QueueConfiguration__mdt: Custom Metadata
+1. QueueSchedulerJob: Schedules the Queueing activity asynchronously
+1. Queue: Reads the QueueConfiguration__mdt and accordingly distribute the Queue Messages to its respective handlers to process
 
 
 ## How it works?
