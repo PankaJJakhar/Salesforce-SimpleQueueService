@@ -16,10 +16,7 @@ public with sharing class QueueMessages extends fflib_SObjectDomain {
     public override void onAfterInsert() {
         List<QueueMessage__c> queueMessagesList = (List<QueueMessage__c>) records;
 
-        QueueScheduler scheduler = new QueueScheduler(queueMessagesList);
-        Database.executeBatch(scheduler);
-        //Queue processQueue = new Queue(queueMessagesList);
-        //processQueue.submit();
+        QueueSchedulerJob schedulerJob = new QueueSchedulerJob(queueMessagesList);
+        Database.executeBatch(schedulerJob);
     }
-
 }

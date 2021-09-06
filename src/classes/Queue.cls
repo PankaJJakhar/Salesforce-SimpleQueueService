@@ -7,11 +7,6 @@ public with sharing class Queue {
 
     private List<QueueMessage__c> queueMessagesList;
 
-    public class MessageHandlerInfo {
-        public String eventType { get; set; }
-        public IQueueMessageHandler handler { get; set; }
-    }
-
     public Queue(List<QueueMessage__c> queueMessagesList) {
         System.debug(LoggingLevel.DEBUG, 'Queue Initialised');
 
