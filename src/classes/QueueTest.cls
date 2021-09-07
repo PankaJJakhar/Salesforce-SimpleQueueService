@@ -70,7 +70,9 @@ private class QueueTest {
     private static void testBulkBehavior() {
         List<Account> accountsList = new List<Account>();
 
-        for (Integer index = 0; index < 1000; index++) {
+        Integer testSize = 200;
+
+        for (Integer index = 0; index < testSize; index++) {
             accountsList.add(TestHelper.createUncommittedAccount());
         }
 
@@ -113,7 +115,7 @@ private class QueueTest {
                 AND Status__c = :QueueConstants.QUEUE_MESSAGE_STATUS_PROCESSED
         ];
 
-        System.assertEquals(1000, returnedQueueMessagesList.size());
+        System.assertEquals(testSize, returnedQueueMessagesList.size());
     }
 
     private static String getAccountMessageBody(Id accountId) {

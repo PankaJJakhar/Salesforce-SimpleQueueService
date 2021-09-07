@@ -14,7 +14,7 @@ Must deploy [ApexMocks](https://github.com/apex-enterprise-patterns/fflib-apex-m
 ### Link to deploy package to your org
 
 ```
-https://login.salesforce.com/packaging/installPackage.apexp?p0=04t5g0000011bTE&isdtp=p1
+https://login.salesforce.com/packaging/installPackage.apexp?p0=04t5g0000011bTO&isdtp=p1
 ```
 
 ## Components
