@@ -54,8 +54,18 @@ public with sharing class QueueSchedulerJob implements Database.Batchable<sObjec
     public void execute(Database.BatchableContext batchableContext, List<QueueMessage__c> queueMessagesList) {
         System.debug(LoggingLevel.DEBUG, 'QueueScheduler.execute -> queueMessagesList.size(): ' + queueMessagesList.size());
 
-        Queue processQueue = new Queue(queueMessagesList);
-        processQueue.submit();
+        Savepoint dbSavepoint = Database.setSavepoint();
+
+        try {
+            Queue processQueue = new Queue(queueMessagesList);
+            processQueue.submit();
+        } catch (Exception ex) {
+            Database.rollback(dbSavepoint);
+
+            System.debug(LoggingLevel.ERROR, 'QueueSchedulerJob -> execute() -> Exception: ' + ex.getMessage() +
+                    +'\n' + ex.getStackTraceString());
+        }
+
     }
 
     public void finish(Database.BatchableContext batchableContext) {
