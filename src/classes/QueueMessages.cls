@@ -36,7 +36,28 @@ public with sharing class QueueMessages extends fflib_SObjectDomain {
     public override void onAfterInsert() {
         List<QueueMessage__c> queueMessagesList = (List<QueueMessage__c>) records;
 
-        QueueSchedulerJob schedulerJob = new QueueSchedulerJob(queueMessagesList);
-        Database.executeBatch(schedulerJob);
+        processQueueMessages(queueMessagesList);
+    }
+
+    public override void onAfterUpdate(Map<Id, SObject> existingRecords) {
+        List<QueueMessage__c> queueMessagesList = (List<QueueMessage__c>) records;
+
+        processQueueMessages(queueMessagesList);
+    }
+
+    private void processQueueMessages(List<QueueMessage__c> queueMessagesList) {
+        List<QueueMessage__c> queueMessagesToProcessList = new List<QueueMessage__c>();
+
+        for (QueueMessage__c queueMessage : queueMessagesList) {
+            if (String.isNotBlank(queueMessage.Status__c) &&
+                    queueMessage.Status__c.equalsIgnoreCase(QueueConstants.QUEUE_MESSAGE_STATUS_PROCESSED) == false) {
+                queueMessagesToProcessList.add(queueMessage);
+            }
+        }
+
+        if (queueMessagesToProcessList.size() > 0) {
+            QueueSchedulerJob schedulerJob = new QueueSchedulerJob(queueMessagesToProcessList);
+            Database.executeBatch(schedulerJob);
+        }
     }
 }
